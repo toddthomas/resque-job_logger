@@ -8,9 +8,9 @@ Gem::Specification.new do |gem|
   gem.version       = Resque::Plugins::JobLogger::VERSION
   gem.authors       = ["Todd Thomas"]
   gem.email         = ["todd.thomas@openlogic.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""
+  gem.description   = %q{A resque plugin which logs the time it takes a job's peform method to run.}
+  gem.summary       = %q{A resque plugin which logs the time it takes a job's peform method to run.}
+  gem.homepage      = "https://github.com/toddthomas/resque-job_logger"
 
   gem.add_dependency "resque", "~> 1.23.1"
 
