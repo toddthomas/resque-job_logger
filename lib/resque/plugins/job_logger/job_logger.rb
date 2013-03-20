@@ -4,11 +4,11 @@ require 'benchmark'
 module Resque::Plugins
   module JobLogger
     def around_perform_log_job(*args)
-      logger.info "#{args} started"
+      logger.info "#{self}(#{args}) started"
       time = Benchmark.realtime do
         yield
       end
-      logger.info "#{args} completed in #{time} seconds"
+      logger.info "#{self}(#{args}) completed in #{time} seconds"
     end
 
     def self.enabled?
@@ -29,7 +29,7 @@ module Resque::Plugins
   end
 
   Resque.before_first_fork do
-    # You get our awesome formatter by default if you're using this plugin.
+    # You get our awesome formatter by default if you're using Resque.logger.
     Resque.logger.formatter = Resque::Plugins::JobLogger::Formatter.new
   end
 

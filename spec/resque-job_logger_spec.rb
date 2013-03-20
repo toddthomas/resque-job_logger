@@ -15,6 +15,7 @@ include PerformJob
 
   before(:each) do
     LoggedJob.logger = logger
+    LoggedJob.logger.formatter = Resque::Plugins::JobLogger::Formatter.new
   end
 
   after(:each) do
@@ -26,12 +27,12 @@ include PerformJob
 
   it "logs job class and args at start of perform" do
     perform_job(LoggedJob, last)
-    IO.read('log').should match /\[#{last}\] started/
+    IO.read('log').should match /LoggedJob\(\[#{last}\]\) started/
   end
 
   it "writes elapsed run time to log" do
     perform_job(LoggedJob, last)
-    IO.read('log').should match /\[#{last}\] completed in [0-9\.e-]+ seconds/
+    IO.read('log').should match /LoggedJob\(\[#{last}\]\) completed in [0-9\.e-]+ seconds/
   end
 
   it "allows arbitrary log messages to be written via the logger method" do

@@ -1,7 +1,16 @@
 # Resque Job Logger
 
 Resque Job Logger adds log entries which indicate the start and elapsed
-run time of each job's perform method.
+run time of each job's perform method, like so:
+
+    [2013-03-20T17:28:34.316202000] 77415: [INFO] LoggedJob([1127520]) started
+    [2013-03-20T17:28:34.316268000] 77415: [INFO] summing 1..1127520
+    [2013-03-20T17:28:34.357921000] 77415: [INFO] LoggedJob([1127520]) completed in 0.041629 seconds
+
+(The middle entry is supplied by the example job's perform method.)
+
+This example also shows the style of resque-job_logger's own formatter,
+Resque::Plugins::JobLogger::Formatter (see Usage below).
 
 ## Installation
 
@@ -26,8 +35,8 @@ Just require it:
 resque-job_logger includes a before_fork hook which automatically adds its
 features to each of your jobs. This may be a bad thing.
 
-resque-job_logger also has its own Logger::Formatter which it uses by default.
-To use another formatter do
+resque-job_logger also has its own formatter which it sets on
+Resque.logger by default. To use another formatter do
 
     Resque.logger.formatter = MyFavoriteFormatter.new
 
