@@ -1,12 +1,13 @@
-# Resque::Job::Logger
+# Resque Job Logger
 
-TODO: Write a gem description
+Resque Job Logger adds log entries which indicate the start and elapsed
+run time of each job's perform method.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'resque-job-logger'
+    gem 'resque-job_logger'
 
 And then execute:
 
@@ -14,11 +15,18 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install resque-job-logger
+    $ gem install resque-job_logger
 
 ## Usage
 
-TODO: Write usage instructions here
+Just require it. resque-job_logger includes a before_fork hook which
+automatically adds its features to each of your jobs. This may be a bad
+thing.
+
+resque-job_logger also has its own Logger::Formatter which it uses by default.
+To use another formatter do
+
+    Resque.logger.formatter = MyFavoriteFormatter.new
 
 ## Contributing
 
