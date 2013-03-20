@@ -3,6 +3,10 @@ require 'spec_helper'
 describe Resque::Plugins::JobLogger do
 include PerformJob
 
+  it "complies with recommended practices" do
+    expect { Resque::Plugin.lint(Resque::Plugins::JobLogger) }.to_not raise_error
+  end
+
   it "supplies the around_perform_log_job hook" do
     LoggedJob.methods.should include :around_perform_log_job
   end
