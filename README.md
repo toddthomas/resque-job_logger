@@ -28,11 +28,11 @@ Or install it yourself as:
 
 ## Usage
 
-Just require it:
+Just bundle it! Or if you're not using bundler, just require it:
 
     require 'resque-job_logger'
 
-resque-job_logger includes a before_fork hook which automatically adds its
+resque-job_logger includes a resque before_fork hook which automatically adds its
 features to each of your jobs. This may be a bad thing.
 
 resque-job_logger also has its own formatter which it sets on
