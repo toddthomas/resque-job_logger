@@ -19,9 +19,12 @@ Or install it yourself as:
 
 ## Usage
 
-Just require it. resque-job_logger includes a before_fork hook which
-automatically adds its features to each of your jobs. This may be a bad
-thing.
+Just require it:
+
+    require 'resque-job_logger'
+
+resque-job_logger includes a before_fork hook which automatically adds its
+features to each of your jobs. This may be a bad thing.
 
 resque-job_logger also has its own Logger::Formatter which it uses by default.
 To use another formatter do
