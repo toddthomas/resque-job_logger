@@ -12,6 +12,13 @@ run time of each job's perform method, like so:
 This example also shows the style of resque-job_logger's own formatter,
 Resque::Plugins::JobLogger::Formatter (see Usage below).
 
+You may ask yourself, what use is this when the entries are timestamped,
+and the resque worker already logs something like job start and end? I'm
+glad you asked. Background jobs by nature may take a long time to run,
+so finding widely-separated start and end log messages on a busy system
+might take an extra few seconds. Resque Job Logger restores precious
+seconds to your life! Also, I wanted a different formatter.
+
 ## Installation
 
 Add this line to your application's Gemfile:
