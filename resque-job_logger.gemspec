@@ -12,7 +12,7 @@ Gem::Specification.new do |gem|
   gem.summary       = %q{A resque plugin which logs the time it takes a job's perform method to run.}
   gem.homepage      = "https://github.com/toddthomas/resque-job_logger"
 
-  gem.add_dependency "resque", "~> 1.23.1"
+  gem.add_dependency "resque", "~> 1.25"
 
   gem.add_development_dependency "rspec"
 
